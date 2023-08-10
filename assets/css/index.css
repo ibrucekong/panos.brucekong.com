@@ -1,0 +1,40 @@
+@-ms-viewport { width:device-width; }
+@media only screen and (min-device-width:800px) { html { overflow:hidden; } }
+html { height:100%; }
+body { height:100%; overflow:hidden; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#FFFFFF; background-color:#000000; }
+
+#krpanoSWFObject > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) {
+  display: none!important;
+}
+.func {
+  position: fixed;
+  top: calc(50vh - 400px);
+  right: 20px;
+  z-index: 999;
+  background: rgba(211, 211, 211, 0.7);
+  padding: 10px;
+  border-radius: 3px;
+
+  display: none;
+}
+.func-content {
+  display: flex!important;
+  flex-direction: column;
+
+  overflow: auto;
+  height: 800px;
+}
+.item {
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 3px;
+}
+.item:hover {
+  color: #225f80;
+}
+.selected {
+  color: #225f80;
+}
+::-webkit-scrollbar{
+  width: 0;
+}

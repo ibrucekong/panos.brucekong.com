@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>全景图 - Bruce Kong</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+	<link rel="icon" sizes="any" href="favicon.ico">
+	<style>
+		@-ms-viewport { width:device-width; }
+		@media only screen and (min-device-width:800px) { html { overflow:hidden; } }
+		html { height:100%; user-select: none; }
+		body { height:100%; overflow:hidden; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#FFFFFF; background-color:#000000; }
+
+		.panorama-title {
+			position: absolute;
+			top: 10px;
+			left: 0;
+			width: 100%;
+			height: 30px;
+			text-align: center;
+			color: gainsboro;
+			font-style: italic;
+			font-size: 22px;
+		}
+		#app {
+			padding-top: calc(50vh - 400px);
+			margin: 0 15%;
+			width: 80%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+		.row {
+			display: flex;
+			padding-bottom: 30px;
+		}
+		.box {
+			width: 300px;
+			height: 300px;
+			cursor: pointer;
+			padding: 0 42px;
+
+			display: flex;
+			align-items: flex-end;
+			overflow: hidden;
+		}
+		.img-content {
+			transition: all .5s ease .1s;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-position: center center;
+			background-size: cover;
+		}
+		.img-content:hover {
+			transform: scale(1.05);
+		}
+		.title {
+			position: absolute;
+			width: 290px;
+			height: 30px;
+			background: rgba(157, 154, 154, 0.5);
+			display: flex;
+			align-items: center;
+			padding-left: 10px;
+		}
+	</style>
+	<script src='assets/js/vue.min.js'></script>
+</head>
+<body>
+<div class='panorama-title'>全景图 - Bruce Kong</div>
+<div id='app'>
+	<div class='row' v-for='(items, index) in data' v-bind:key='index'>
+		<div class='box'
+				 v-for='item in items'
+				 :key='item.url'
+				 @click='openByUrl(item.url)'
+		>
+			<img class='img-content' :src=`assets/img${item.url}.png` :alt='item.url'>
+			<div class='title'>
+				{{item.name}}
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+  new Vue({
+		el: '#app',
+		data() {
+			return {
+				// 数组为 N行4列，预览图片以url为结尾的命名，存放在 assets/img 下面，如下所示：
+				data: [[
+					{name: '示例', url: '/demo'},
+					{name: '示例', url: '/demo'},
+					{name: '示例', url: '/demo'},
+					{name: '示例', url: '/demo'},
+				],[
+					{name: '示例', url: '/demo'},
+					{name: '示例', url: '/demo'},
+					{name: '示例', url: '/demo'},
+				]],
+				baseUrl: location.origin + location.pathname
+			}
+		},
+		components: {},
+		created() {},
+		beforeDestroy() {},
+		mounted() {
+			if (this.baseUrl.lastIndexOf('/index.html') !== -1) {
+				// 替换掉
+				this.baseUrl = this.baseUrl.replace('/index.html', '/')
+			}
+			this.data = [[
+				{name: '浪潮集团', url: '/inspur'},
+				{name: '山东科技大学', url: '/sdust'}
+			]]
+		},
+		computed: {},
+		methods: {
+			openByUrl(url) {
+				url = this.baseUrl + `${url}`
+				// window.open(url, '_self')
+				window.open(url, '_blank')
+			}
+		}
+	})
+</script>
+</body>
+</html>

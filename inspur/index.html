@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>浪潮科技园 - Bruce Kong</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+	<link rel='stylesheet' href='../assets/css/index.css'>
+</head>
+<body>
+
+<script src="./../assets/krp/tour.js"></script>
+<script src='../assets/js/index.js'></script>
+
+<div class='func'></div>
+
+<div id="pano" style="width:100%;height:100%;">
+	<noscript><table style="width:100%;height:100%;"><tr style="vertical-align:middle;"><td><div style="text-align:center;">ERROR:<br/><br/>Javascript not activated<br/><br/></div></td></tr></table></noscript>
+	<script>
+
+	</script>
+	<script>
+		embedpano({
+			swf:"./../assets/krp/tour.swf",
+			xml:"./../assets/krp/inspur.xml",
+			target:"pano",
+			html5:"auto",
+			mobilescale:1.0,
+			passQueryParameters:true
+		});
+
+		let baseData = [
+			{name: '浪潮集团', url: '01'},
+			{name: '浪潮科技园', url: '02'},
+			{name: '科技园正门', url: '03'},
+			{name: 'S01科研楼', url: '04'},
+			{name: '科研楼大厅', url: '05'},
+			{name: '专利墙', url: '06'},
+			{name: '标准墙', url: '07'},
+			{name: '展厅', url: '08'},
+			{name: '星巴克', url: '09'},
+			{name: '健身房', url: '10'},
+			{name: '室外休息室', url: '11'},
+			{name: '图书馆', url: '12'},
+			{name: '肯德基', url: '13'},
+			{name: '餐厅', url: '14'},
+			{name: '浪潮餐厅', url: '15'},
+			{name: '茶歇间', url: '16'},
+			{name: '操场', url: '17'},
+			{name: '篮球场', url: '18'},
+			{name: '网球场', url: '19'},
+			{name: '音乐广场', url: '20'},
+			{name: '贵宾室', url: '21'},
+			{name: '报告厅', url: '22'},
+			{name: '会议室', url: '23'},
+			{name: '办公区', url: '24'},
+			{name: 'SSC', url: '25'},
+			{name: '直播间', url: '26'},
+			{name: '进口商品超市', url: '27'},
+			{name: '母婴室', url: '28'},
+			{name: '洗车场', url: '29'},
+			{name: '浪潮夜景', url: '30'}
+		]
+		init(baseData)
+	</script>
+</div>
+
+</body>
+</html>
