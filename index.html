@@ -121,6 +121,7 @@
 		computed: {},
 		methods: {
 			openByUrl(url) {
+				url = url.slice(1)
 				url = this.baseUrl + `${url}`
 				// window.open(url, '_self')
 				window.open(url, '_blank')
