@@ -56,7 +56,7 @@ function generateButton() {
     align-items: center;
     justify-content: center;
     padding-bottom: 2px;
-    padding-right: 5px;
+    padding-right: 0px;
     font-size: 18px;
     cursor: pointer;
 }`
