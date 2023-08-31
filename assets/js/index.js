@@ -5,6 +5,11 @@ function init(data) {
   initMask()
   // 初始化页面
   initPage()
+
+  if (isMobile()) {
+    // 动态生成控制菜单的按钮，并隐藏菜单
+    generateButton()
+  }
 }
 
 function generateDom(baseData) {
@@ -18,6 +23,45 @@ function generateDom(baseData) {
     parentDom.appendChild(dom)
     dom = undefined
   })
+}
+
+function generateButton() {
+  // 先隐藏
+  let dom = document.querySelector('.func.func-content')
+  dom.style.display = 'none'
+
+  let button = document.createElement('button')
+  button.className = 'dymc-button'
+  button.innerHTML = "🙈"
+  button.onclick = () => {
+    let dom = document.querySelector('.func.func-content')
+    if (dom.style.display === 'none') {
+      dom.style.display = 'flex'
+      button.innerHTML = "🙉"
+    }else {
+      dom.style.display = 'none'
+      button.innerHTML = "🙈"
+    }
+  }
+  const style = document.createElement('style')
+  style.innerHTML = `
+.dymc-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2px;
+    padding-right: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}`
+  document.getElementsByTagName('head').item(0).appendChild(style)
+  document.body.appendChild(button)
 }
 
 function initPage() {
@@ -139,6 +183,18 @@ function changeMask(show) {
   if (maskElement) {
     maskElement[0].style.display = show ? 'block' : 'none'
   }
+}
+
+/**
+ * 是否是手机端
+ * @returns {boolean}
+ */
+function isMobile() {
+  //获取到userAgent 使用正则表达式解析 若是移动端返回的flag将不为null，反之为null
+  let flag = navigator.userAgent.match(
+    /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+  )
+  return flag != null;
 }
 
 /**
