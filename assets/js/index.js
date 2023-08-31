@@ -194,7 +194,12 @@ function isMobile() {
   let flag = navigator.userAgent.match(
     /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
   )
-  return flag != null;
+  // 如果不符合上面的正则
+  if (flag == null) {
+    // 判断是不是ios
+    return !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+  }
+  return true;
 }
 
 /**
