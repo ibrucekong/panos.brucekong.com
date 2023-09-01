@@ -61,7 +61,7 @@ function generateButton() {
     cursor: pointer;
 }`
 
-  if (navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Chrome") === -1) {
+  if ((navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Chrome") === -1) || (/micromessenger/.test(navigator.userAgent.toLowerCase()))) {
     // 在这里添加适用于Safari的CSS样式
     style.innerHTML = `
 .dymc-button {
@@ -70,12 +70,12 @@ function generateButton() {
     right: 10px;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-bottom: 2px;
-    padding-right: 25px!important;
+    padding-right: 15px!important;
     font-size: 18px;
     cursor: pointer;
 }`
