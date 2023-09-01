@@ -75,7 +75,7 @@ function generateButton() {
     align-items: center;
     justify-content: center;
     padding-bottom: 2px;
-    padding-right: 15px!important;
+    padding-right: 17px!important;
     font-size: 18px;
     cursor: pointer;
 }`
